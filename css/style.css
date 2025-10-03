@@ -1,0 +1,425 @@
+/* FILE: styles.css */
+:root{
+--bg:#0b0f14;
+--panel:#0f1720;
+--muted:#9aa5b1;
+--accent1: #5eead4; /* aqua */
+--accent2: #60a5fa; /* blue */
+--glass: rgba(255,255,255,0.03);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+
+html {
+  background: transparent;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: transparent;                                   
+  color: #f1f1f1;
+  line-height: 1.6;
+  min-height: 100vh;
+  
+}
+
+main{
+ min-height: 100vh;
+  background: linear-gradient(90deg, #1c0024,#02202c,#182523);
+  background: -webkit-linear-gradient(90deg, #1c0024,#02202c,#182523);
+}
+
+.container{
+    max-width:1100px;margin:0 auto;padding:2rem
+}
+
+.nav-wrap{
+    display:flex;align-items:center;gap:1rem;justify-content:space-between
+}
+
+.brand .logo{
+    display:flex;align-items:center;gap:.6rem;font-weight:700}
+.brand .logo i{background:linear-gradient(135deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent
+}
+
+.site-header{
+    position:sticky;top:0;z-index:60;background:linear-gradient(180deg, rgba(11,15,20,0.9), rgba(11,15,20,0.6));backdrop-filter: blur(6px);border-bottom:1px solid rgba(255,255,255,0.03)
+}
+
+.main-nav{
+    display:block
+}
+
+.nav-list{
+    list-style:none;display:flex;gap:1rem;margin:0;padding:0;align-items:center
+}
+
+.nav-list a{
+    color:var(--muted);text-decoration:none;padding:.5rem .6rem;border-radius:6px
+}
+
+.nav-list a:hover{
+    color:#fff;background:var(--glass)
+}
+
+.has-sub{
+    position:relative
+}
+
+.sub-menu{
+    position:absolute;left:0;top:calc(100% + 8px);background:linear-gradient(180deg, rgba(18,24,30,0.95), rgba(12,16,20,0.95));min-width:200px;border-radius:8px;padding:.6rem;box-shadow:0 6px 18px rgba(0,0,0,0.6);display:none
+}
+
+.sub-menu li{
+    padding:0
+}
+
+.sub-menu a{
+    display:block;padding:.6rem;border-radius:6px;color:var(--muted)
+}
+
+.sub-menu a:hover{
+    color:#fff;background:rgba(255,255,255,0.03)
+}
+
+.cta-group{
+    display:flex;gap:.6rem
+}
+
+.btn{
+    display:inline-flex;align-items:center;gap:0.6rem;padding:.6rem 1rem;border-radius:10px;border:1px solid transparent;text-decoration:none;font-weight:600
+}
+
+.btn-ghost{
+    background:transparent;border:1px solid rgba(255,255,255,0.04);color:var(--muted)
+}
+
+.btn-outline{
+    background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--accent1)
+}
+
+.btn-primary{
+    background:linear-gradient(90deg,var(--accent1),var(--accent2));color:#042029;border:none
+}
+
+.mobile-toggle{
+    display:none;background:transparent;border:1px solid rgba(255,255,255,0.04);padding:.5rem;border-radius:8px;color:var(--muted)
+}
+
+.hero{
+    padding:4rem 0
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bg-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+} 
+
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center}
+.hero-content h1{font-size:2.1rem;margin:0 0 .6rem}
+.link-cta, .btn{cursor:pointer}
+
+/* Para que el contenido esté por encima del canvas */
+.hero-content-overlay {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 90%;
+  color: #ffffff;
+}
+
+.hero-content-overlay h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content-overlay h1 span {
+  color: #00c9ff;
+}
+
+.hero-content-overlay p {
+  margin-bottom: 1.5rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(17, 17, 17, 0.8); /* semi-transparente para ver el fondo */
+  backdrop-filter: blur(6px);         /* efecto vidrio */
+  padding: 15px 30px;
+  position: fixed;   /* <<--- CLAVE: fija la barra */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;     /* se asegura de quedar arriba del resto */
+}
+
+.navbar .logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #00c9ff;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #f1f1f1;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #00c9ff;
+}
+
+.navbar ul li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgb(11, 11, 11); /* fondo translúcido */
+  padding: 10px 0;
+  list-style: none;
+  display: none;
+  min-width: 220px; /* 👈 controla el ancho mínimo */
+  border-radius: 8px;
+}
+
+.navbar ul li:hover ul {
+  display: block;
+}
+
+.navbar ul li ul li {
+  padding: 10px 20px;
+  white-space: nowrap; /* evita que el texto se corte */
+}
+
+.navbar ul li ul li a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+}
+
+.navbar ul li ul li a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* Dropdown */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: #222;
+  list-style: none;
+  top: 30px;
+  left: 0;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  margin: 5px 0;
+}
+
+/* Botón */
+.btn {
+  background: linear-gradient(135deg, #00c9ff, #0072ff);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+
+/* Secciones */
+.section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #00c9ff;
+}
+
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero h1 span {
+  color: #00c9ff;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.15); /* Fondo blanco translúcido */
+  backdrop-filter: blur(10px);            /* Efecto de desenfoque */
+  -webkit-backdrop-filter: blur(10px);    /* Compatibilidad Safari */
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.card i {
+  font-size: 2em;
+  color: #00c9ff;
+  margin-bottom: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* Tarifas */
+.pricing {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.price-card {
+  background: #222;
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 200px;
+}
+
+/* Formulario */
+.contact-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.contact-form button {
+  align-self: center;
+}
+
+/* Footer */
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #888;
+}
+
+/* ====== BOTÓN HAMBURGUESA ====== */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ====== RESPONSIVE ====== */
+@media screen and (max-width: 768px) {
+  .menu-toggle {
+    display: block; /* aparece el botón hamburguesa */
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: #111;
+    width: 250px;
+    height: calc(100vh - 70px);
+    flex-direction: column;
+    align-items: start;
+    padding: 20px;
+    display: none; /* por defecto está oculto */
+  }
+
+  .nav-links.active {
+    display: flex; /* cuando se active el menú */
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links li a {
+    width: 100%;
+    padding: 12px 15px;
+  }
+
+  /* SUBMENÚS EN MÓVILES */
+  .nav-links li ul {
+    position: static;
+    background: #222;
+    margin-left: 15px;
+  }
+
+  .nav-links li:hover ul {
+    display: none; /* quita hover en móvil */
+  }
+
+  .nav-links li ul li a {
+    padding: 10px 20px;
+  }
+}
+
