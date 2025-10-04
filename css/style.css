@@ -24,9 +24,9 @@ body {
 }
 
 main{
- min-height: 100vh;
-  background: linear-gradient(90deg, #1c0024,#02202c,#182523);
-  background: -webkit-linear-gradient(90deg, #1c0024,#02202c,#182523);
+min-height: 100vh;
+background: -webkit-linear-gradient(90deg, #18001f,#021c27,#000000);/* Chrome 10-25, Safari 5.1-6 */                          
+background: linear-gradient(90deg, #18001f,#021c27,#000000);/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */                                             
 }
 
 .container{
@@ -270,7 +270,7 @@ main{
 
 /* Secciones */
 .section {
-  padding: 60px 20px;
+  padding: 80px 20px;
   text-align: center;
 }
 
@@ -340,24 +340,70 @@ main{
 /* Formulario */
 .contact-form {
   max-width: 500px;
-  margin: auto;
+  margin: 40px auto;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.05); /* vidrio */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
 }
 
 .contact-form input,
 .contact-form textarea {
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.03);
+  color: #fff;
+  font-size: 1rem;
   outline: none;
+  transition: all 0.3s ease;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #00c9ff;
+  background: rgba(0, 201, 255, 0.05);
+  box-shadow: 0 0 10px rgba(0, 201, 255, 0.5);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
 }
 
 .contact-form button {
-  align-self: center;
+  background: linear-gradient(135deg, #00c9ff, #0072ff);
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+.contact-form button:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
 /* Footer */
 footer {
   background: #111;
@@ -380,7 +426,9 @@ footer {
   .menu-toggle {
     display: block; /* aparece el botón hamburguesa */
   }
-
+.nav-links li.show > ul {
+  display: block !important;
+}
   .nav-links {
     position: absolute;
     top: 70px;
@@ -409,11 +457,19 @@ footer {
 
   /* SUBMENÚS EN MÓVILES */
   .nav-links li ul {
-    position: static;
     background: #222;
-    margin-left: 15px;
+    position: static;       /* << importante: que se comporte como bloque normal */
+    display: none;          /* oculto por defecto */
+    padding-left: 15px;     /* indentación para diferenciar */
+    margin-top: 5px;
+    background: #222;
+    border-radius: 5px;
   }
 
+  .nav-links li.show > ul {
+    display: block !important;
+  }
+  
   .nav-links li:hover ul {
     display: none; /* quita hover en móvil */
   }
@@ -423,3 +479,33 @@ footer {
   }
 }
 
+footer {
+  background: #111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  color: #888;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #888;
+  font-size: 1.5rem;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+  color: #00c9ff; /* color de acento */
+  transform: scale(1.2); /* efecto de zoom al pasar el mouse */
+}

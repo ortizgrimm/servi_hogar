@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios Hogar</title>
   <link rel="stylesheet" href="css/style.css">
-  <script src="script.js" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
@@ -23,22 +22,10 @@
     <ul class="nav-links" id="nav-links">
       <li><a href="#inicio">Inicio</a></li>
       <li>
-        <a href="#nosotros">Nosotros</a>
-        <ul>
-          <li><a href="#mision">Misión</a></li>
-          <li><a href="#vision">Visión</a></li>
-          <li><a href="#valores">Valores corporativos</a></li>
-          <li><a href="#historia">Historia</a></li>
-        </ul>
+        <a href="#nosotros" onclick="toggleSubmenu(event)">Nosotros</a>
       </li>
       <li>
-        <a href="#servicios">Nuestros servicios</a>
-        <ul>
-          <li><a href="#limpieza">Servicio de limpieza</a></li>
-          <li><a href="#electricidad">Servicio de electricidad</a></li>
-          <li><a href="#asesorias">Servicio de asesorías académicas</a></li>
-          <li><a href="#transporte">Servicio de transporte</a></li>
-        </ul>
+        <a href="#servicios" onclick="toggleSubmenu(event)">Nuestros servicios</a>
       </li>
       <li><a href="#tarifas">Tarifas y precios</a></li>
       <li><a href="#contacto">Contacto</a></li>
@@ -137,30 +124,46 @@
   <!-- Contacto -->
   <section id="contacto" class="section">
     <h2>Contacto</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Tu nombre" required>
-      <input type="email" placeholder="Tu correo" required>
-      <textarea placeholder="Escribe tu mensaje" required></textarea>
-      <button type="submit" class="btn">Enviar</button>
-    </form>
+    <!-- Formulario de contacto -->
+<form id="contactForm" class="contact-form">
+  <input type="text" name="name" placeholder="Tu nombre" required>
+  <input type="email" name="email" placeholder="Tu correo" required>
+  <textarea name="message" placeholder="Escribe tu mensaje" required></textarea>
+  <button type="submit" class="btn">Enviar</button>
+</form>
   </section>
 
   <!-- Trabaja con nosotros -->
   <section id="trabaja" class="section">
     <h2>Trabaja con nosotros</h2>
     <p>¿Quieres formar parte de nuestro equipo? Déjanos tus datos.</p>
-    <form class="contact-form">
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="email" placeholder="Correo electrónico" required>
-      <input type="text" placeholder="Teléfono" required>
-      <textarea placeholder="Cuéntanos sobre tu experiencia" required></textarea>
-      <button type="submit" class="btn">Enviar</button>
-    </form>
+    <!-- Formulario de trabajo -->
+<form id="workForm" class="contact-form">
+  <input type="text" name="fullname" placeholder="Nombre completo" required>
+  <input type="email" name="email" placeholder="Correo electrónico" required>
+  <input type="text" name="phone" placeholder="Teléfono" required>
+  <textarea name="experience" placeholder="Cuéntanos sobre tu experiencia" required></textarea>
+  <button type="submit" class="btn">Enviar</button>
+</form>
   </section>
 
-  <footer>
-    <p>&copy; 2025 ServiHogar - Todos los derechos reservados</p>
-  </footer>
+ <footer>
+  <div class="footer-content">
+    <p>&copy; <span id="year"></span> ServiHogar - Todos los derechos reservados</p>
+    <div class="social-links">
+      <a href="https://wa.me/message/GAPWBQDFDYTVI1?src=qr" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+      <a href="https://www.facebook.com/tuempresa" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.instagram.com/tuempresa" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
   <script src="js/main.js"></script>
 </main>
 </body>
